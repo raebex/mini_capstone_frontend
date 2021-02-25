@@ -9,7 +9,13 @@
     <div class="card-columns">
       <div class="card" v-for="product in products" :key="product.name">
         <router-link :to="`/products/${product.id}`">
-          <img class="card-img-top" :src="product.images[0].url" />
+          <img v-if="product.images[0]" class="card-img-top" :src="product.images[0].url" />
+          <img
+            v-else
+            class="card-img-top"
+            src="https://recordsale.de/assets/record_placeholder-f3f829566497dc26b0abfae50ddeb5c7bc48fe1c58dc1c7fe62a26d64988b9c9.svg"
+            alt=""
+          />
         </router-link>
         <div class="card-body">
           <h5 class="card-title">{{ product.name }}</h5>
