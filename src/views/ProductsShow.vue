@@ -9,7 +9,9 @@
         </span>
       </div>
       <p>{{ product.description }}</p>
-      <small class="text-muted">Sold by {{ product.supplier_name }}</small>
+      <p class="mb-5">
+        <small class="text-muted">Sold by {{ product.supplier_name }}</small>
+      </p>
 
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">

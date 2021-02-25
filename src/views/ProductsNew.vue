@@ -1,27 +1,32 @@
 <template>
   <div class="products-new">
+    <h1>Add a product</h1>
+    <ul>
+      <li class="text-danger" v-for="error in errors" v-bind:key="error">
+        {{ error }}
+      </li>
+    </ul>
     <form v-on:submit.prevent="createProduct()">
-      <h1>Add a product</h1>
-      <ul>
-        <li class="text-danger" v-for="error in errors" v-bind:key="error">
-          {{ error }}
-        </li>
-      </ul>
-      <label>Name:</label>
-      <input type="text" v-model="name" />
-      <br />
-      <label>Price:</label>
-      <input type="text" v-model="price" />
-      <br />
-      <label>Description:</label>
-      <input type="text" v-model="description" />
-      <br />
-      <label>Inventory:</label>
-      <input type="text" v-model="inventory" />
-      <br />
-      <label>Supplier:</label>
-      <input type="text" v-model="supplierId" />
-      <br />
+      <div class="form-group">
+        <label for="productName">Name</label>
+        <input v-model="name" type="text" class="form-control" id="productName" />
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input v-model="price" type="text" class="form-control" id="price" />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input v-model="description" type="text" class="form-control" id="description" />
+      </div>
+      <div class="form-group">
+        <label for="inventory">Inventory</label>
+        <input v-model="inventory" type="text" class="form-control" id="inventory" />
+      </div>
+      <div class="form-group">
+        <label for="supplierId">Supplier ID</label>
+        <input v-model="supplierId" type="text" class="form-control" id="supplierId" />
+      </div>
       <input type="submit" class="btn btn-primary" value="Create" />
     </form>
   </div>
