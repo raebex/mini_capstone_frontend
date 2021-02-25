@@ -1,36 +1,33 @@
 <template>
   <div class="products-index">
-    <div class="container">
-      <h1>Products</h1>
-      <div v-for="product in products" :key="product.name">
+    <div class="jumbotron">
+      <h1 class="display-4">Mini Capstone</h1>
+      <p class="lead">
+        Just a simple store with a lot of vinyl records.
+      </p>
+    </div>
+    <div class="card-columns">
+      <div class="card" v-for="product in products" :key="product.name">
         <router-link :to="`/products/${product.id}`">
-          <h2>{{ product.name }}</h2>
-          <p>{{ product.price }}</p>
-          <p>{{ product.description }}</p>
-          <p>{{ product.supplier_name }}</p>
-          <div v-for="image in product.images" :key="image.url">
-            <img :src="image.url" />
-          </div>
-          <h3>Categories:</h3>
-          <div v-for="category in product.categories" :key="category.name">
-            <p>{{ category.name }}</p>
-          </div>
+          <img class="card-img-top" :src="product.images[0].url" />
         </router-link>
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text font-weight-bold">${{ product.price }}</p>
+          <p class="card-text">{{ product.description }}</p>
+          <p class="card-text">
+            <span class="badge badge-info mr-1" v-for="category in product.categories" :key="category.name">
+              {{ category.name }}
+            </span>
+          </p>
+          <p class="card-text">
+            <small class="text-muted">Sold by {{ product.supplier_name }}</small>
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </template>
-
-<style scoped>
-  .container {
-    max-width: 450px;
-    margin: 0 auto;
-  }
-
-  img {
-    width: 100%;
-  }
-</style>
 
 <script>
 import axios from "axios";
