@@ -22,12 +22,7 @@
       </div>
       <div class="form-group">
         <label for="passwordConfirmation">Password Confirmation</label>
-        <input
-          v-model="passwordConfirmation"
-          type="passwordConfirmation"
-          class="form-control"
-          id="passwordConfirmation"
-        />
+        <input v-model="passwordConfirmation" type="password" class="form-control" id="passwordConfirmation" />
       </div>
       <input type="submit" class="btn btn-primary" value="Submit" />
     </form>
